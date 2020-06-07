@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <title></title>
+</head>
+
+<body style="padding-top:50px">
+
+    <div class="col-md-10 col-md-offset-1" id="divData">
+
+        <table class="table table-bordered" id="tblData">
+            <thead>
+                <tr class="success">
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Birthday</th>
+                </tr>
+            </thead>
+
+            <tbody id="tblBody">
+            </tbody>
+        </table>
+        <div style="margin-left:270px;">
+            <button id="btnAddStudent" class="btn btn-success" style="margin-left:20px; margin-top:10px">
+                Add student
+            </button>
+            <button id="btnDeleteStudent" class="btn btn-danger" style="margin-left:20px; margin-top:10px">
+                Delete student
+            </button>
+            <button id="btnEditStudent" class="btn btn-default" style="margin-left:20px; margin-top:10px">
+                Edit student
+            </button>
+        </div>
+
+        <!--forms div-->
+        <div class="col-md-10" style="display:flex; justify-content:space-between; margin-left:-50px">
+            <!--Add student form-->
+            <div class="col-md-4 col-md-offset-1 alert collapse" id="divAddStudentForm" style="margin-top:30px; margin-bottom: 30px;margin-left:60px">
+                <table class="table table-bordered" id="tblAddData" style="align-content:start">
+                    <thead>
+                        <tr class="success">
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>FirstName</td>
+                            <td><input type="text" id="FirstNameTxt" /></td>
+                        </tr>
+                        <tr>
+                            <td>LastName</td>
+                            <td><input type="text" id="LastNameTxt" /></td>
+                        </tr>
+                        <tr>
+                            <td>Birthday (yyyy-MM-dd)</td>
+                            <td><input type="text" id="BirthdayTxt" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="display:flex; justify-content:space-between">
+                    <button id="AddFRMbtnAdd" class="btn btn-success">Add</button>
+                    <button id="AddFRMbtnClose" class="btn btn-default" style="margin-right: 100px">Close</button>
+                </div>
+                <div id="divErrorAdd" class="alert alert-danger collapse" style="margin-top: 15px;">
+                    <button id="linkCloseAdd" class="close">&times;</button>
+                    <div id="divErrorTextAdd"></div>
+                </div>
+            </div>
+
+            <!--Delete student form-->
+
+            <div class="col-md-4 col-md-offset-1 alert collapse" id="divDeleteStudentForm" style="margin-top:30px; margin-bottom: 30px;">
+                <table class="table table-bordered" id="tblDeleteData" style="align-content:start">
+                    <thead>
+                        <tr class="danger">
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Id</td>
+                            <td><input type="text" id="IdDeleteTxt" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="display:flex; justify-content:space-between">
+                    <button id="DeleteFRMbtnDel" class="btn btn-danger">Delete</button>
+                    <button id="DeleteFRMbtnClose" class="btn btn-default" style="margin-right: 85px">Close</button>
+                </div>
+                <div id="divErrorDelete" class="alert alert-danger collapse" style="margin-top: 15px;">
+                    <button id="linkCloseDelete" class="close">&times;</button>
+                    <div id="divErrorTextDelete"></div>
+                </div>
+            </div>
+
+            <!--Edit student form-->
+
+            <div class="col-md-4 col-md-offset-1 alert collapse" id="divFindStudentForm" style="margin-top:30px; margin-bottom: 30px;">
+                <table class="table table-bordered" id="tblFindDataToEdit" style="align-content:start">
+                    <thead>
+                        <tr class="">
+                            <th>Field</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Id</td>
+                            <td><input type="text" id="IdEditTxt" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div style="display:flex; justify-content:space-between; margin-bottom: 15px">
+                    <button id="FindFRMbtnFind" class="btn btn-success">Find</button>
+                    <button id="FindFRMbtnClose" class="btn btn-default" style="margin-right: 95px">Close</button>
+                </div>
+                <div id="divErrorEdit" class="alert alert-danger collapse" style="margin-top: 15px;">
+                    <button id="linkCloseEdit" class="close">&times;</button>
+                    <div id="divErrorTextEdit"></div>
+                </div>
+
+                <div class="col-md-4 col-md-offset-1 alert collapse" id="divEditStudentForm" style="margin-bottom: 30px;">
+                    <table class="table table-bordered" id="tblEditData" style="align-content:start">
+                        <tbody>
+                            <tr>
+                                <td>FirstName</td>
+                                <td><input type="text" id="FirstNameTxtEdit" /></td>
+                            </tr>
+                            <tr>
+                                <td>LastName</td>
+                                <td><input type="text" id="LastNameTxtEdit" /></td>
+                            </tr>
+                            <tr>
+                                <td>Birthday (yyyy-MM-dd)</td>
+                                <td><input type="text" id="BirthdayTxtEdit" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="display:flex; justify-content:space-between">
+                        <button id="EditFRMbtnEdit" class="btn btn-success">Edit</button>
+                        <button id="EditFRMbtnClose" class="btn btn-default" style="margin-left: 20px">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            ShowStudents();
+
+            //Adding student btns
+            $("#btnAddStudent").click(function () {
+                $('#FirstNameTxt').val('');
+                $('#LastNameTxt').val('');
+                $('#BirthdayTxt').val('');
+                $('#divAddStudentForm').show('fade');
+                $('#divErrorAdd').hide('fade');
+            });
+            $("#AddFRMbtnAdd").click(function () {
+                AddStudent();
+                $('#divAddStudentForm').hide('fade');
+            });
+            $("#AddFRMbtnClose").click(function () {
+                $('#divAddStudentForm').hide('fade');
+            });
+            $('#linkCloseAdd').click(function () {
+                $('#divErrorAdd').hide('fade');
+            });
+
+            //Deleting student btns
+            $('#btnDeleteStudent').click(function () {
+                $('#IdDeleteTxt').val('');
+                $('#divErrorDelete').hide('fade');
+                $('#divDeleteStudentForm').show('fade');
+            });
+            $('#DeleteFRMbtnDel').click(function () {
+                DeleteStudent($('#IdDeleteTxt').val());
+            });
+            $("#DeleteFRMbtnClose").click(function () {
+                $('#divDeleteStudentForm').hide('fade');
+            });
+            $('#linkCloseDelete').click(function () {
+                $('#divErrorDelete').hide('fade');
+            });
+
+            //Edit student btns
+            $('#btnEditStudent').click(function () {
+                $('#IdEditTxt').val('');
+                $('#FirstNameTxtEdit').val('');
+                $('#LastNameTxtEdit').val('');
+                $('#BirthdayTxtEdit').val('');
+                $('#divErrorEdit').hide('fade');
+                $('#divFindStudentForm').show('fade');
+            });
+            $('#FindFRMbtnFind').click(function () {
+                $('#divErrorEdit').hide('fade');
+                SearcForStudentToEdit($('#IdEditTxt').val());
+            });
+            $("#FindFRMbtnClose").click(function () {
+                $('#divEditStudentForm').hide('fade');
+                $('#divFindStudentForm').hide('fade');
+                $('#divErrorEdit').hide('fade');
+            });
+            $("#EditFRMbtnClose").click(function () {
+                $('#divEditStudentForm').hide('fade');
+            });
+            $('#linkCloseEdit').click(function () {
+                $('#divErrorEdit').hide('fade');
+            });
+            $("#EditFRMbtnEdit").click(function () {
+                EditStudent(studentId, currentStudent);
+                $('#divEditStudentForm').hide('fade');
+                $('#divFindStudentForm').hide('fade');
+            });
+
+
+            function ShowStudents() {
+                $.ajax({
+                    url: '/api/students',
+                    method: 'GET',
+                    success: function (data) {
+                        $('#tblBody').empty();
+                        $.each(data, function (index, value) {
+                            var row = $('<tr><td>' + value.Id + '</td><td>'
+                                + value.FirstName + '</td><td>'
+                                + value.LastName + '</td><td>'
+                                + value.Birthday + '</td>' +
+                                '</tr > ');
+                            $('#tblData').append(row);
+                        });
+                    }
+                });
+            }
+
+            function AddStudent() {
+
+                var student = {
+                    FirstName: $('#FirstNameTxt').val(),
+                    LastName: $('#LastNameTxt').val(),
+                    Birthday: $('#BirthdayTxt').val()
+                };
+
+                $.ajax({
+                    url: '/api/students',
+                    method: 'POST',
+                    data: JSON.stringify(student),
+                    contentType: "application/json;charset=utf-8",
+                    success: function () {
+                        ShowStudents();
+                    },
+                    error: function (jqXHR) {
+                        $('#divErrorAdd').show('fade');
+                        $('#divErrorTextAdd').text(jqXHR.responseText);
+                    }
+                });
+            }
+
+            function DeleteStudent(id) {
+                $.ajax({
+                    url: '/api/students/' + id,
+                    method: 'DELETE',
+                    success: function () {
+                        $('#divDeleteStudentForm').hide('fade');
+                        ShowStudents();
+                    },
+                    error: function (jqXHR) {
+                        $('#divErrorDelete').show('fade');
+                        $('#divErrorTextDelete').text(jqXHR.responseText);
+                    }
+                });
+            }
+
+            function EditStudent(id, student) {
+                student = {
+                    FirstName: $('#FirstNameTxtEdit').val(),
+                    LastName: $('#LastNameTxtEdit').val(),
+                    Birthday: $('#BirthdayTxtEdit').val()
+                };
+                $.ajax({
+                    url: '/api/students/' + id,
+                    method: 'PUT',
+                    data: JSON.stringify(student),
+                    contentType: "application/json;charset=utf-8",
+                    success: function () {
+                        ShowStudents();
+                    },
+                    error: function () {
+                        
+                    }
+                });
+            }
+
+            function SearcForStudentToEdit(id) {
+                $.ajax({
+                    url: '/api/students/' + id,
+                    method: 'GET',
+                    success: function (data) {
+                        $('#divEditStudentForm').show('fade');
+                        ShowStudentToEdit(data);
+                    },
+                    error: function (jqXHR) {
+                        $('#divErrorEdit').show('fade');
+                        $('#divErrorTextEdit').text(jqXHR.responseText);
+                    }
+                });
+            }
+
+            var studentId;
+            var currentStudent;
+            function ShowStudentToEdit(student) {
+                student = {
+                    Id: $('#IdEditTxt').val(),
+                    FirstName: $('#FirstNameTxtEdit').val(student.FirstName),
+                    LastName: $('#LastNameTxtEdit').val(student.LastName),
+                    Birthday: $('#BirthdayTxtEdit').val(student.Birthday)
+                }
+                studentId = student.Id;
+                currentStudent = student;
+                //EditStudent(student.Id, student);
+            }
+        });
+    </script>
+</body>
+</html>
